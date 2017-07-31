@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "station": "北京南",
+    "lnt":116.385169,
+    "lat":39.870965,
+    "arrivalTime":"起点站",
+    "departureTime":"10:50"
+
+  }, {
+    "id": "2",
+    "station": "天津南",
+    "lnt":117.067499,
+    "lat":39.062802,
+    "arrivalTime":"11:24",
+    "departureTime":"11:33"
+  }, {
+    "id": "3",
+    "station": "济南西",
+    "lnt":116.898031,
+    "lat":36.675265,
+    "arrivalTime":"12:43",
+    "departureTime":"12:45"
+  }, {
+    "id": "4",
+    "station": "徐州东",
+    "lnt":117.309558,
+    "lat":34.273439,
+    "arrivalTime":"14:19",
+    "departureTime":"14:21"
+  }, {
+    "id": "5",
+    "station": "南京南",
+    "lnt":118.804341,
+    "lat":31.975024,
+    "arrivalTime":"15:44",
+    "departureTime":"15:50"
+  },  {
+    "id": "6",
+    "station": "杭州东",
+    "lnt":120.219396,
+    "lat":30.297149,
+    "arrivalTime":"17:13",
+    "departureTime":"17:15"
+  }
+]
