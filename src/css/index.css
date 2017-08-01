@@ -22,6 +22,19 @@ html, body {
   height:900px;
 }
 
+@media screen and (max-width:1000px) {
+  #example {
+    width: 800px;
+    height:600px;
+  }
+  .left-area{
+    height:600px;
+  }
+  .right-area{
+    height:600px;
+  }
+}
+
 .list-group{
   margin-top: 10px
 }
