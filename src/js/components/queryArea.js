@@ -23,7 +23,7 @@ export default class QueryArea extends React.Component {
   // }
   handleQuery(trainNum) {
     var that = this;
-    fetch('../src/js/demo.json').then(function(response) {
+    fetch('./src/js/demo.json').then(function(response) {
       return response.json()
     }).then(function(result) {
       that.setState({data: result})
