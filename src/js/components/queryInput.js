@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Row, Col, Form, Input, Button,notification} from 'antd';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Row, Col, Form, Input, Button,notification} from 'antd'
 export default class QueryArea extends React.Component {
   constructor(props) {
     super(props)
-    this.query=this.query.bind(this);
+    this.query=this.query.bind(this)
   }
   query(e) {
     e.preventDefault()
@@ -13,7 +13,7 @@ export default class QueryArea extends React.Component {
     if (!trainNum) {
       notification.open({
         description: '车次不得为空！',
-    });
+    })
     } else {
       this.props.query(trainNum)
       element.value = "G163"

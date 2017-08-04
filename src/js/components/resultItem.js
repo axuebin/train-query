@@ -1,5 +1,5 @@
-import React from 'react';
-import {Row, Col} from 'antd';
+import React from 'react'
+import {Row, Col} from 'antd'
 
 export default class ResultItem extends React.Component {
   constructor(props) {
@@ -7,8 +7,8 @@ export default class ResultItem extends React.Component {
   }
   render() {
     let station = this.props.station
-    let arrivalTime=this.props.arrivalTime
-    let departureTime=this.props.departureTime
+    let arrivalTime = this.props.arrivalTime
+    let departureTime = this.props.departureTime
     return (
       <li className="list-group-item">
         <Row>

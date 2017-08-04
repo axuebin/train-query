@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "echarts": "^3.6.2",
-    "echarts-for-react": "^1.4.4"
+    "echarts-for-react": "^1.4.4",
+    "fetch-jsonp": "^1.1.1"
   }
 }

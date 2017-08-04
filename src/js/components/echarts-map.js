@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'echarts/map/js/china';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import 'echarts/map/js/china'
 
 var echarts = require('echarts/lib/echarts')
 require('echarts/lib/chart/map')
@@ -9,7 +9,6 @@ require('echarts/lib/component/title')
 require('echarts/lib/component/tooltip')
 
 export default class EchartsMap extends React.Component {
-
   constructor(props) {
     super(props)
     this.setMapOption = this.setMapOption.bind(this)
@@ -18,6 +17,10 @@ export default class EchartsMap extends React.Component {
 
   initMapChart() {
     const {data} = this.props
+    let chart = echarts.getInstanceByDom(this.refs.mapChart)
+    if (typeof(chart) !== 'undefined') {
+      chart.dispose();
+    }
     let myChart = echarts.init(this.refs.mapChart)
     let options = this.setMapOption(data)
     myChart.setOption(options)
@@ -50,9 +53,7 @@ export default class EchartsMap extends React.Component {
       },
       tooltip: {
         trigger: 'item',
-        formatter: function (params) {
-            return params.name;
-        }
+        formatter: params => params.name
       },
       geo: {
         map: 'china',
@@ -63,13 +64,13 @@ export default class EchartsMap extends React.Component {
         },
         roam: true,
         itemStyle: {
-            normal: {
-              areaColor: '#eeeeee',
-              borderColor: '#828282'
-            },
-            emphasis: {
-              areaColor: '#eeeeee'
-            }
+          normal: {
+            areaColor: '#eeeeee',
+            borderColor: '#828282'
+          },
+          emphasis: {
+            areaColor: '#eeeeee'
+          }
         }
       },
       series: [

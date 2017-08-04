@@ -1,19 +1,13 @@
-import React from 'react';
-import ResultItem from './resultItem';
-import {Row, Col} from 'antd';
-export default class QueryResult extends React.Component{
+import React from 'react'
+import ResultItem from './resultItem'
+import {Row, Col} from 'antd'
+export default class QueryResult extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
-  render(){
-    var stationList=this.props.data.map(listItem=>
-      <ResultItem stationId={listItem.id}
-                key={listItem.id}
-                station={listItem.station}
-                arrivalTime={listItem.arrivalTime}
-                departureTime={listItem.departureTime}/>
-    )
-    return(
+  render() {
+    var stationList = this.props.data.map(listItem => <ResultItem stationId={listItem.id} key={listItem.id} station={listItem.station} arrivalTime={listItem.arrivalTime} departureTime={listItem.departureTime}/>)
+    return (
       <div>
         <li className="list-group-item">
           <Row>
