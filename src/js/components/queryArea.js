@@ -58,20 +58,27 @@ export default class QueryArea extends React.Component {
     let that = this
     let queryData = testData
     let length = queryData.length
+    let fetchArray = []
     for (let i = 0; i < length; i++) {
       let station = queryData[i].station
       let city = queryData[i].city
       let url = "http://api.map.baidu.com/geocoder/v2/?ak=" + AK + "&output=json&address=" + station + "&city=" + city
-      fetchJsonp(url).then(response => response.json()).then(location => {
-        queryData[i]["lng"] = location.result.location.lng
-        queryData[i]["lat"] = location.result.location.lat
-        if (i === length - 1) {
-          that.setState({data: queryData})
-        }
-      }).catch(function(e) {
-        alert("坐标请求出错啦~")
+      let fetchSingle = new Promise(function(resolve, reject) {
+        fetchJsonp(url).then(response => response.json()).then(location => {
+          queryData[i]["lng"] = location.result.location.lng
+          queryData[i]["lat"] = location.result.location.lat
+          resolve(queryData)
+        }).catch(function(e) {
+          alert("坐标请求出错啦~")
+        })
       })
+      fetchArray.push(fetchSingle)
     }
+
+    let fetchAll = Promise.all(fetchArray)
+    fetchAll.then(function(queryData) {
+      that.setState({data: queryData[0]})
+    })
   }
 
   render() {
@@ -88,8 +95,12 @@ export default class QueryArea extends React.Component {
             <QueryResult data={this.state.data}/>
           </Col>
         </Row>
-        <Button className="pull-right"><Icon type="github" /><a href="https://github.com/axuebin">axuebin</a></Button>
-        <Button className="pull-right"><Icon type="user" /><a href="http://axuebin.com">薛彬</a></Button>
+        <Button className="pull-right"><Icon type="github"/>
+          <a href="https://github.com/axuebin">axuebin</a>
+        </Button>
+        <Button className="pull-right"><Icon type="user"/>
+          <a href="http://axuebin.com">薛彬</a>
+        </Button>
       </div>
     )
   }
